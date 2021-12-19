@@ -1,0 +1,31 @@
+<div class="container page-wrapper">
+    <div class="page-inner">
+        <div class="row">
+            <div class="el-wrapper">
+                <div class="box-up">
+                    <img class="img" style='height: 100%; width: 100%; object-fit: fill' src="{{product.imagePath}}"
+                        alt="">
+                    <div class="img-info">
+                        <div class="info-inner">
+                            <span class="p-name">{{product.productName}}</span>
+                            <span class="p-company">{{product.categoryName}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-down">
+                    <div class="h-bg">
+                        <div class="h-bg-inner"></div>
+                    </div>
+
+                    <a class="cart" [routerLink]="['/product-detail', product.id]">
+                        <span class="price">{{product.salesPrice}}</span>
+                        <span class="add-to-cart">
+                            <span class="txt">Detay</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

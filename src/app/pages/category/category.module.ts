@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CustomComponentsModule } from 'src/app/_components/custom-components/custom-components.module';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+import { CategoryRoutingModule } from './category-routing.module';
+import { CategoryComponent } from './category.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    CategoryComponent
   ],
   imports: [
-    HomeRoutingModule,
+    CategoryRoutingModule,
     CustomComponentsModule,
     CommonModule
   ],
   providers: [],
 })
-export class HomeModule { }
+export class CategoryModule { }
