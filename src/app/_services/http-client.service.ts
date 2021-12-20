@@ -18,8 +18,8 @@ export class HttpClientService {
         return this.http.get<T>(this.url + path).toPromise();
     }
 
-    post(path: string, model: any): Observable<any> {
-        return this.http.post(this.url + path, model)
+    post(path: string, model: any): Promise<boolean> {
+        return this.http.post<boolean>(this.url + path, model).toPromise();
     }
 
     put(path: string, model: any): Observable<any> {

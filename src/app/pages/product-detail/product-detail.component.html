@@ -1,0 +1,84 @@
+<div class="card">
+    <img src="{{imagePath}}" alt="{{productDetail.username}}" style="width:200px;height:200px">
+    <h1>{{productDetail.productName}} </h1>
+    <p class="price">{{productDetail.quantity}} adet mevcut</p>
+
+    <p class="price">{{productDetail.salesPrice}}</p>
+    <p class="price">{{productDetail.detail}}</p>
+</div>
+
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-10 col-12 text-center mb-5">
+            <div class="card" *ngFor="let comment of productDetail.comments">
+                <div class="row d-flex">
+                    <div class="d-flex flex-column">
+                        <h3 class="mt-2 mb-0">{{comment.firstName}} {{comment.lastName}}</h3>
+                    </div>
+                    <div class="ml-auto">
+                        <p class="text-muted pt-5 pt-sm-3">{{comment.date}}</p>
+                    </div>
+                </div>
+                <div class="row text-left">
+                    <h4 class="blue-text mt-3">{{comment.title}}</h4>
+                    <p class="content">{{comment.comment}}</p>
+                    <p class="content">
+                        <span style="color:green">({{comment.sentimentAnalysis.positive | percent}} Positive) - </span>
+                        <span style="color:red">({{comment.sentimentAnalysis.negative | percent}} Negative) - </span>
+                        <span style="color:blue">({{comment.sentimentAnalysis.neutral | percent}} Neutral) - </span>
+                        <span style="color:brown">({{comment.sentimentAnalysis.compound | percent}} Compound)</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="card" *ngIf="productDetail.comments.length == 0">
+                <div class="row d-flex">
+                    <div class="d-flex flex-column">
+                        <h3 class="mt-2 mb-0">Yorum Yok</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 50px;">
+                <div class="row d-flex">
+                    <div class="d-flex flex-column">
+                        <h3 class="mt-2 mb-0">Yorum Yap</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center d-flex">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <input placeholder="Mail" [(ngModel)]="newComment.mail" type="text">
+                            </td>
+                            <td>
+                                <input placeholder="Ad" [(ngModel)]="newComment.firstName" type="text">
+                            </td>
+                            <td>
+                                <input placeholder="Soyad" [(ngModel)]="newComment.lastName" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="2">
+                                <input placeholder="Başlık" width="100%" [(ngModel)]="newComment.title" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="3">
+                                <textarea width="100%" [(ngModel)]="newComment.comment">
+                                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="submit" value="Kaydet" (click)="addComment()">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

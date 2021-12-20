@@ -1,3 +1,5 @@
+import { CommentsDetail } from "./comments";
+
 export class ProductDetail {
     id: number = 0;
     productName: string = '';
@@ -7,5 +9,6 @@ export class ProductDetail {
     salesPrice: string = '';
     categoryName: string = '';
     productImages: any[] = [];
-    comments: any[] = [];
+    comments: CommentsDetail[] = [];
+    detail: string = ''
 }

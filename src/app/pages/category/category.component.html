@@ -1,4 +1,6 @@
-<p>{{category.name}}</p>
+<h2 style=" text-align:center">{{category.name}}</h2>
+<p style=" text-align:center"> {{products.length == 0 ? 'Bu kategoriye ait ürün bulunamadı' : products.length + ' ürün
+    bulundu' }} </p>
 
 <ul class="listing">
     <div *ngFor="let product of products">
